@@ -2,6 +2,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+from .reachability_cli import register_commands
 from .reporting import Reporter
 from .service import ApplicationService
 from .storage import Database
@@ -15,7 +16,11 @@ def main(argv=None):
     sub=parser.add_subparsers(dest='command',required=True)
     run=sub.add_parser('run'); run.add_argument('--fixture',required=True); run.add_argument('--output',required=True)
     report=sub.add_parser('report'); report.add_argument('--kind')
-    args=parser.parse_args(argv); database=Database(args.database)
+    register_commands(sub)
+    args=parser.parse_args(argv)
+    if getattr(args,'handler',None) is not None:
+        return args.handler(args)
+    database=Database(args.database)
     if args.command=='run':
         fixture=load_json(args.fixture); service=ApplicationService(database); outputs=[]
         for index,item in enumerate(fixture.get('items',[])):

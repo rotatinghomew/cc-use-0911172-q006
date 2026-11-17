@@ -1,0 +1,104 @@
+{
+  "scenario": "2026-11 秋季班结业跟踪",
+  "as_of": "2026-11-17T00:00:00+00:00",
+  "minimum_rest_minutes": 30,
+  "travel_matrix": {
+    "school": {"job": 20, "market": 35},
+    "job": {"market": 15, "school": 20},
+    "market": {"job": 15}
+  },
+  "courses": [
+    {
+      "course_id": "basic",
+      "start": "2026-10-05T09:00:00+00:00",
+      "end": "2026-11-16T17:00:00+00:00",
+      "location": "school",
+      "capacity": 30,
+      "enrolled": 24
+    }
+  ],
+  "cohorts": [
+    {"cohort_id": "cohort-youth", "course_id": "basic", "segment": "青年"},
+    {"cohort_id": "cohort-women", "course_id": "basic", "segment": "女性"}
+  ],
+  "interviews": [
+    {
+      "interview_id": "int-day1",
+      "start": "2026-11-17T09:00:00+00:00",
+      "end": "2026-11-17T10:00:00+00:00",
+      "window_start": "2026-11-17T09:00:00+00:00",
+      "window_end": "2026-11-17T12:00:00+00:00",
+      "location": "job",
+      "capacity": 6,
+      "booked": 2
+    }
+  ],
+  "shifts": [
+    {
+      "shift_id": "shift-same-day",
+      "start": "2026-11-17T11:00:00+00:00",
+      "end": "2026-11-17T14:00:00+00:00",
+      "location": "job",
+      "capacity": 2,
+      "filled": 0,
+      "open_until": "2026-11-17T10:30:00+00:00"
+    },
+    {
+      "shift_id": "shift-next-week",
+      "start": "2026-11-24T11:00:00+00:00",
+      "end": "2026-11-24T14:00:00+00:00",
+      "location": "market",
+      "capacity": 5,
+      "filled": 0
+    }
+  ],
+  "people": [
+    {
+      "person_id": "person-1",
+      "cohort_id": "cohort-youth",
+      "course_id": "basic",
+      "completed_at": "2026-11-16T17:00:00+00:00",
+      "completed_courses": ["basic"],
+      "segment": "青年"
+    },
+    {
+      "person_id": "person-2",
+      "cohort_id": "cohort-youth",
+      "course_id": "basic",
+      "completed_at": "2026-11-16T17:00:00+00:00",
+      "completed_courses": ["basic"],
+      "segment": "青年"
+    },
+    {
+      "person_id": "person-3",
+      "cohort_id": "cohort-youth",
+      "course_id": "basic",
+      "completed_at": "2026-11-16T17:00:00+00:00",
+      "completed_courses": ["basic"],
+      "segment": "青年"
+    },
+    {
+      "person_id": "person-4",
+      "cohort_id": "cohort-women",
+      "course_id": "basic",
+      "segment": "女性"
+    },
+    {
+      "person_id": "person-5",
+      "cohort_id": "cohort-women",
+      "course_id": "basic",
+      "completed_at": "2026-11-16T17:00:00+00:00",
+      "completed_courses": ["basic"],
+      "segment": "女性"
+    }
+  ],
+  "commitments": [
+    {
+      "commitment_id": "family-pickup",
+      "person_id": "person-5",
+      "start": "2026-11-17T09:30:00+00:00",
+      "end": "2026-11-17T10:30:00+00:00",
+      "kind": "family"
+    }
+  ]
+}
